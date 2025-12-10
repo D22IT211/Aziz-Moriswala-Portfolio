@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate FormSubmit</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f9ff; }
+        .card { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); text-align: center; max-width: 400px; }
+        button { background: #2563eb; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; margin-top: 1rem; }
+        button:hover { background: #1d4ed8; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Activate FormSubmit</h2>
+        <p>Click the button below to send a test submission. This should trigger the activation email from FormSubmit.co.</p>
+        <form action="https://formsubmit.co/azizmoriswala94@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Activation Test">
+            <input type="hidden" name="message" value="This is a test message to trigger activation.">
+            <button type="submit">Send Activation Email</button>
+        </form>
+    </div>
+</body>
+</html>
