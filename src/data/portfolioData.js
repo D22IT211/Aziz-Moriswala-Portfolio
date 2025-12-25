@@ -1,5 +1,5 @@
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaJava, FaPython, FaDocker, FaAws, FaGitAlt, FaLinux, FaDatabase, FaChartBar } from 'react-icons/fa';
-import { SiMongodb, SiFirebase, SiMysql, SiGooglecloud, SiTableau, SiPandas, SiNumpy, SiSelenium, SiFigma, SiAdobexd, SiFlutter, SiDart, SiBootstrap, SiExpress } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaJava, FaPython, FaDocker, FaAws, FaGitAlt, FaLinux, FaDatabase, FaChartBar, FaGithub, FaInfinity, FaServer, FaBug, FaClipboardList, FaCheckSquare, FaUserCheck, FaSearch, FaPencilRuler, FaObjectGroup, FaMobileAlt, FaFileCode, FaProjectDiagram, FaLayerGroup, FaCode, FaCloud, FaVial, FaPalette, FaChartPie } from 'react-icons/fa';
+import { SiMongodb, SiFirebase, SiMysql, SiGooglecloud, SiTableau, SiPandas, SiNumpy, SiSelenium, SiFigma, SiAdobexd, SiFlutter, SiDart, SiBootstrap, SiExpress, SiC, SiCplusplus, SiLooker, SiCanva, SiGnubash } from 'react-icons/si';
 
 export const personalInfo = {
     name: "Aziz Moriswala",
@@ -43,82 +43,144 @@ export const education = [
 
 export const skills = [
     {
-        category: "Full Stack",
-        items: [
-            { name: "HTML", icon: FaHtml5 },
-            { name: "CSS", icon: FaCss3Alt },
-            { name: "Bootstrap", icon: SiBootstrap },
-            { name: "JavaScript", icon: FaJs },
-            { name: "PHP", icon: FaPhp },
-            { name: "React", icon: FaReact },
-            { name: "Node.js", icon: FaNodeJs },
-            { name: "Express", icon: SiExpress }
+        category: "Full Stack Web Development",
+        icon: FaLayerGroup,
+        subcategories: [
+            {
+                name: "Frontend",
+                items: [
+                    { name: "HTML", icon: FaHtml5 },
+                    { name: "CSS", icon: FaCss3Alt },
+                    { name: "Bootstrap", icon: SiBootstrap },
+                    { name: "JavaScript", icon: FaJs },
+                    { name: "ReactJS", icon: FaReact }
+                ]
+            },
+            {
+                name: "Backend",
+                items: [
+                    { name: "NodeJS", icon: FaNodeJs },
+                    { name: "ExpressJS", icon: SiExpress },
+                    { name: "PHP", icon: FaPhp }
+                ]
+            },
+            {
+                name: "Database",
+                items: [
+                    { name: "MySQL", icon: SiMysql },
+                    { name: "SQL Server", icon: FaDatabase },
+                    { name: "Firebase", icon: SiFirebase },
+                    { name: "MongoDB", icon: SiMongodb }
+                ]
+            }
         ]
     },
     {
-        category: "Programming",
+        category: "Programming Languages",
+        icon: FaCode,
         items: [
-            { name: "C", icon: null }, // No specific icon in react-icons/fa for C generic
-            { name: "C++", icon: null },
+            { name: "C", icon: SiC },
+            { name: "C++", icon: SiCplusplus },
             { name: "Java", icon: FaJava },
             { name: "Python", icon: FaPython }
         ]
     },
     {
-        category: "Databases",
-        items: [
-            { name: "MySQL", icon: SiMysql },
-            { name: "SQL Server", icon: FaDatabase },
-            { name: "Firebase", icon: SiFirebase },
-            { name: "MongoDB", icon: SiMongodb }
-        ]
-    },
-    {
         category: "Cloud & DevOps",
-        items: [
-            { name: "AWS", icon: FaAws },
-            { name: "GCP", icon: SiGooglecloud },
-            { name: "Linux", icon: FaLinux },
-            { name: "Git/GitHub", icon: FaGitAlt },
-            { name: "Docker", icon: FaDocker },
-            { name: "CI/CD", icon: null }
+        icon: FaCloud,
+        subcategories: [
+            {
+                name: "Cloud Platforms",
+                items: [
+                    { name: "GCP", icon: SiGooglecloud },
+                    { name: "AWS", icon: FaAws }
+                ]
+            },
+            {
+                name: "DevOps & Tools",
+                items: [
+                    { name: "Docker", icon: FaDocker },
+                    { name: "Git", icon: FaGitAlt },
+                    { name: "GitHub", icon: FaGithub },
+                    { name: "CI/CD", icon: FaInfinity }
+                ]
+            },
+            {
+                name: "System & Scripting",
+                items: [
+                    { name: "Linux", icon: FaLinux },
+                    { name: "Bash", icon: SiGnubash },
+                    { name: "Python Scripting", icon: FaPython }
+                ]
+            }
         ]
     },
     {
-        category: "Data Engineering",
-        items: [
-            { name: "ETL", icon: null },
-            { name: "Data Warehousing", icon: null },
-            { name: "pandas", icon: SiPandas },
-            { name: "NumPy", icon: SiNumpy },
-            { name: "Power BI", icon: FaChartBar },
-            { name: "Tableau", icon: SiTableau }
+        category: "Data Engineering & Analysis",
+        icon: FaChartPie,
+        subcategories: [
+            {
+                name: "Engineering",
+                items: [
+                    { name: "ETL Pipelines", icon: FaProjectDiagram },
+                    { name: "Data Warehousing", icon: FaServer },
+                    { name: "JSON/CSV Handling", icon: FaFileCode }
+                ]
+            },
+            {
+                name: "Analysis & Visualization",
+                items: [
+                    { name: "Pandas", icon: SiPandas },
+                    { name: "NumPy", icon: SiNumpy },
+                    { name: "Power BI", icon: FaChartBar },
+                    { name: "Tableau", icon: SiTableau },
+                    { name: "Looker Studio", icon: SiLooker }
+                ]
+            }
         ]
     },
     {
-        category: "QA",
-        items: [
-            { name: "Manual Testing", icon: null },
-            { name: "Test Cases", icon: null },
-            { name: "Bug Reporting", icon: null },
-            { name: "Selenium", icon: SiSelenium }
+        category: "QA & Testing",
+        icon: FaVial,
+        subcategories: [
+            {
+                name: "Manual",
+                items: [
+                    { name: "Manual Testing", icon: FaCheckSquare },
+                    { name: "Test Cases", icon: FaClipboardList },
+                    { name: "Bug Reporting", icon: FaBug },
+                    { name: "UAT", icon: FaUserCheck }
+                ]
+            },
+            {
+                name: "Automation",
+                items: [
+                    { name: "Basic Selenium", icon: SiSelenium }
+                ]
+            }
         ]
     },
     {
-        category: "UI/UX",
-        items: [
-            { name: "Figma", icon: SiFigma },
-            { name: "Adobe XD", icon: SiAdobexd },
-            { name: "Wireframing", icon: null },
-            { name: "Prototyping", icon: null },
-            { name: "Responsive UI", icon: null }
-        ]
-    },
-    {
-        category: "Mobile",
-        items: [
-            { name: "Flutter", icon: SiFlutter },
-            { name: "Dart", icon: SiDart }
+        category: "UI/UX & Designing",
+        icon: FaPalette,
+        subcategories: [
+            {
+                name: "Tools",
+                items: [
+                    { name: "Canva", icon: SiCanva },
+                    { name: "Figma", icon: SiFigma },
+                    { name: "Adobe XD", icon: SiAdobexd }
+                ]
+            },
+            {
+                name: "Processes",
+                items: [
+                    { name: "Wireframing", icon: FaPencilRuler },
+                    { name: "Prototyping", icon: FaObjectGroup },
+                    { name: "Responsive UI", icon: FaMobileAlt },
+                    { name: "User Research", icon: FaSearch }
+                ]
+            }
         ]
     }
 ];

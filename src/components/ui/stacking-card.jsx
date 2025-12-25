@@ -1,9 +1,10 @@
 'use client';
 import { ReactLenis } from 'lenis/react';
-import { useTransform, motion, useScroll } from 'framer-motion';
+// eslint-disable-next-line no-unused-vars
+import { motion, useTransform, useScroll } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { cn } from '../../lib/utils';
+
 import { ArrowRight, MousePointer2 } from 'lucide-react';
 import AuroraCanvas from './ambient-aurora';
 import { MouseTrackerProvider, Pointer, PointerFollower } from './cursor';
@@ -37,9 +38,11 @@ const Card = ({
                 style={{
                     backgroundColor: color,
                     scale,
+                    // Mobile: static top or smaller offset
+                    // Desktop: calculated offset
                     top: `calc(-5vh + ${i * 25}px)`,
                 }}
-                className={`flex flex-col relative -top-[10%] md:-top-[25%] h-auto min-h-[500px] md:h-[500px] w-[95%] md:w-[70%] rounded-3xl p-6 md:p-12 origin-top shadow-2xl overflow-hidden text-white`}
+                className={`flex flex-col relative -top-[5%] md:-top-[25%] h-auto min-h-[400px] md:h-[500px] w-full md:w-[70%] rounded-3xl p-6 md:p-12 origin-top shadow-2xl overflow-hidden text-white`}
             >
                 <MouseTrackerProvider className="relative w-full h-full block">
                     <Pointer>
@@ -55,18 +58,18 @@ const Card = ({
                     </div>
 
                     <div className={`flex flex-col md:flex-row h-full gap-8 md:gap-12`}>
-                        <div className={`w-full md:w-[40%] relative flex flex-col justify-between`}>
+                        <div className={`w-full md:w-[40%] relative flex flex-col gap-6`}>
                             <div>
-                                <p className='text-base md:text-lg opacity-90 leading-relaxed'>{description}</p>
+                                <p className='text-base md:text-lg opacity-90 leading-relaxed line-clamp-5 md:line-clamp-7 max-w-sm'>{description}</p>
                             </div>
 
-                            <span className='flex items-center gap-2 pt-6'>
+                            <span className='flex items-center gap-2'>
                                 <Link
                                     to={link}
                                     state={{ from: 'all-projects' }}
-                                    className='flex items-center gap-2 text-white font-semibold hover:underline group'
+                                    className='inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold text-sm transition-transform hover:scale-105 active:scale-95 group shadow-lg hover:shadow-xl'
                                 >
-                                    View Project
+                                    View Details
                                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                 </Link>
                             </span>
@@ -147,7 +150,7 @@ export default function StackingCards({ projects }) {
                                 title={project.title}
                                 color={color}
                                 // Truncate description for the card
-                                description={project.description.length > 150 ? project.description.substring(0, 150) + "..." : project.description}
+                                description={project.description}
                                 link={`/project/${project.id}`}
                                 progress={scrollYProgress}
                                 range={[i * 0.25, 1]}

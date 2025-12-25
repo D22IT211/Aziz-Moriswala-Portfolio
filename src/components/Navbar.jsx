@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const location = useLocation();
+
     const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
@@ -52,9 +53,7 @@ const Navbar = () => {
 
     // Smooth scroll for anchor links
     // Smooth scroll for anchor links
-    const handleNavClick = () => {
-        setIsOpen(false);
-    };
+
 
     return (
         <motion.nav
@@ -70,7 +69,7 @@ const Navbar = () => {
             }}
         >
             <div
-                className={`container mx-auto px-6 py-3 rounded-full flex justify-between items-center transition-all duration-300 ${scrolled ? 'glass' : 'bg-transparent'
+                className={`container mx-auto px-4 md:px-6 py-3 rounded-full flex justify-between items-center transition-all duration-300 ${scrolled ? 'glass' : 'bg-transparent'
                     }`}
                 style={{
                     maxWidth: '1200px',

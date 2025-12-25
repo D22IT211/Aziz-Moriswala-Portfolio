@@ -1,4 +1,6 @@
 import React from 'react';
+
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { education } from '../../data/portfolioData';
 import { FaGraduationCap } from 'react-icons/fa';
@@ -8,7 +10,7 @@ const Education = () => {
     return (
         <section id="education" className="py-20 relative overflow-hidden bg-slate-100 dark:bg-slate-950 transition-colors duration-300">
             <MathBackground />
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

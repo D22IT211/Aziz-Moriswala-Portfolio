@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
+
 import { projects } from '../data/portfolioData';
 import { FaArrowLeft, FaGithub, FaExternalLinkAlt, FaTools, FaListUl, FaCheckCircle, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaDatabase, FaAndroid, FaAws } from 'react-icons/fa';
 import { SiMongodb, SiFirebase, SiMysql, SiFlutter, SiDart, SiExpress, SiRedux, SiSocketdotio, SiStripe, SiGithubactions, SiMaterialdesign } from 'react-icons/si';

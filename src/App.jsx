@@ -37,7 +37,10 @@ const RouteLoader = ({ children }) => {
     prevTheme.current = theme;
 
     // Show loader
-    setLoading(true);
+    // Show loader
+    setTimeout(() => {
+      setLoading(true);
+    }, 0);
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000); // 1-second load duration
@@ -80,7 +83,7 @@ function App() {
               <Router>
                 <ScrollToTop />
                 <MagneticCursor
-                  cursorColor="#3b82f6"
+                  cursorColor="#ffffff"
                   cursorSize={20}
                   magneticFactor={0.3}
                 >

@@ -4,7 +4,8 @@ import React, { useState, useCallback, useRef, useEffect } from "react"
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*"
 
-export function TextScramble({ text, className = "", as: Component = "div", ...props }) {
+/* eslint-disable no-unused-vars */
+export function TextScramble({ text, className = "", as: Tag = "div", ...props }) {
     const [displayText, setDisplayText] = useState(text)
     const [isHovering, setIsHovering] = useState(false)
     const [isScrambling, setIsScrambling] = useState(false)
@@ -59,7 +60,7 @@ export function TextScramble({ text, className = "", as: Component = "div", ...p
     }, [])
 
     return (
-        <Component
+        <Tag
             className={`group relative inline-flex flex-col cursor-pointer select-none ${className}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -93,6 +94,6 @@ export function TextScramble({ text, className = "", as: Component = "div", ...p
                 className={`absolute -inset-4 rounded-lg bg-blue-500/5 transition-opacity duration-300 -z-10 ${isHovering ? "opacity-100" : "opacity-0"
                     }`}
             />
-        </Component>
+        </Tag>
     )
 }

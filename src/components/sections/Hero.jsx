@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { personalInfo } from '../../data/portfolioData';
 import { FaDownload, FaArrowRight, FaTerminal, FaCircle } from 'react-icons/fa';
@@ -6,7 +8,7 @@ import ParticleNetwork from '../backgrounds/ParticleNetwork';
 
 const CodeWindow = () => {
     return (
-        <div className="rounded-xl overflow-hidden shadow-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-700 font-mono text-sm md:text-base w-full max-w-lg mx-auto transform hover:scale-[1.02] transition-transform duration-300">
+        <div className="rounded-xl overflow-hidden shadow-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-700 font-mono text-sm md:text-base w-full mx-auto transform hover:scale-[1.02] transition-transform duration-300">
             {/* Window Header */}
             <div className="bg-gray-100 dark:bg-[#2d2d2d] px-4 py-2 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700">
                 <div className="flex gap-1.5">
@@ -92,7 +94,7 @@ const Hero = () => {
             {/* Particle Network Background */}
             <ParticleNetwork />
 
-            <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
                 {/* Text Content - Left Side */}
                 <div className="text-center lg:text-left relative">

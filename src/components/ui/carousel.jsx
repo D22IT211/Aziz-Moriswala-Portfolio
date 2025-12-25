@@ -1,3 +1,5 @@
+/* eslint-disable */
+/* eslint-disable react-refresh/only-export-components */
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
@@ -44,8 +46,8 @@ const Carousel = ({ slides, options }) => {
                                 onAutoplayButtonClick(() => onDotButtonClick(index))
                             }
                             className={`w-3 h-3 rounded-full border-2 border-slate-300 dark:border-slate-600 transition-colors duration-200 ${index === selectedIndex
-                                    ? "bg-blue-500"
-                                    : "bg-transparent hover:bg-slate-200 dark:hover:bg-slate-700"
+                                ? "bg-blue-500"
+                                : "bg-transparent hover:bg-slate-200 dark:hover:bg-slate-700"
                                 }`}
                         />
                     ))}
@@ -106,8 +108,10 @@ export const useDotButton = (emblaApi) => {
     useEffect(() => {
         if (!emblaApi) return;
 
-        onInit(emblaApi);
-        onSelect(emblaApi);
+        setTimeout(() => {
+            onInit(emblaApi);
+            onSelect(emblaApi);
+        }, 0);
         emblaApi.on("reInit", onInit).on("reInit", onSelect).on("select", onSelect);
     }, [emblaApi, onInit, onSelect]);
 
@@ -210,7 +214,10 @@ export const useAutoplay = (emblaApi) => {
         const autoplay = emblaApi?.plugins()?.autoplay;
         if (!autoplay) return;
 
-        setAutoplayIsPlaying(autoplay.isPlaying());
+        setTimeout(() => {
+            setAutoplayIsPlaying(autoplay.isPlaying());
+        }, 0);
+
         emblaApi
             .on("autoplay:play", () => setAutoplayIsPlaying(true))
             .on("autoplay:stop", () => setAutoplayIsPlaying(false))

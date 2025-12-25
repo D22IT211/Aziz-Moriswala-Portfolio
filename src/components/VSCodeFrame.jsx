@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 import {
     Folder, File, ChevronRight, ChevronDown, X, Minus, Square,
     Search, GitBranch, Bug, Blocks, Settings, User,
@@ -102,6 +104,7 @@ export default function VSCodeFrame() {
     useEffect(() => {
         let timeout;
 
+        // Logic handled inside the effect, effect runs on every deps change
         if (isWaiting) {
             // Pause between lines or before resetting
             if (activeLineIndex >= codeLines.length) {
@@ -129,11 +132,11 @@ export default function VSCodeFrame() {
                     }, 30); // Typing speed
                 } else {
                     // Line finished
-                    setIsWaiting(true);
+                    setTimeout(() => setIsWaiting(true), 0);
                 }
             } else {
                 // All lines finished, trigger wait
-                setIsWaiting(true);
+                setTimeout(() => setIsWaiting(true), 0);
             }
         }
 
@@ -269,7 +272,7 @@ export default function VSCodeFrame() {
                             {/* Minimap */}
                             <div className="hidden lg:block absolute right-3 top-4 w-20 h-full opacity-40 pointer-events-none">
                                 {codeLines.map((_, i) => (
-                                    <div key={i} className="h-1 mx-1 my-0.5 bg-slate-500/30 rounded-sm" style={{ width: `${30 + Math.random() * 50}%` }} />
+                                    <div key={i} className="h-1 mx-1 my-0.5 bg-slate-500/30 rounded-sm" style={{ width: `${30 + (i * 7 % 50)}%` }} />
                                 ))}
                             </div>
                         </div>

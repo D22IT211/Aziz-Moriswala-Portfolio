@@ -1,4 +1,6 @@
 import React from 'react';
+
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { personalInfo } from '../../data/portfolioData';
 import { FaUser, FaCode, FaLaptopCode, FaRocket } from 'react-icons/fa';
@@ -41,7 +43,7 @@ const About = () => {
     return (
         <section id="about" className="py-20 relative overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
             <CyberGrid />
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                     {/* Left Side - Visual Profile */}
@@ -54,7 +56,7 @@ const About = () => {
                     >
                         <div className="relative">
                             <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-[2rem] transform rotate-6 opacity-20 blur-lg"></div>
-                            <div className="glass-card p-2 rounded-[2rem] relative overflow-hidden border-2 border-white/20">
+                            <div className="glass-card p-2 rounded-[2rem] relative overflow-hidden border-2 border-white/20 max-w-full">
                                 <div className="bg-slate-200 dark:bg-slate-800 rounded-[1.8rem] aspect-[4/5] flex items-center justify-center relative overflow-hidden group">
                                     <img
                                         src="/assets/images/programmer-3d.png"

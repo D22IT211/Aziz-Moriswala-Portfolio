@@ -1,6 +1,8 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { projects, skills } from '../../data/portfolioData';
+
+import { projects } from '../../data/portfolioData';
 import { FaArrowRight } from 'react-icons/fa';
 import AuroraCanvas from '../ui/ambient-aurora';
 import { Link } from 'react-router-dom';
@@ -11,20 +13,12 @@ const Projects = ({ limit }) => {
     const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
     // Helper to find icon for a tool
-    const getTechIcon = (toolName) => {
-        for (const category of skills) {
-            const found = category.items.find(item => item.name.toLowerCase() === toolName.toLowerCase());
-            if (found && found.icon) {
-                return found.icon;
-            }
-        }
-        return null;
-    };
+
 
     return (
         <section id="projects" className="py-20 relative overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
             <AuroraCanvas />
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +34,7 @@ const Projects = ({ limit }) => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     {/* VS Code Frame - Visible on Mobile (below title) and Desktop (sticky) */}
-                    <div className="block lg:sticky top-24 h-[500px] lg:h-[calc(100vh-8rem)] mb-12 lg:mb-0 w-full">
+                    <div className="block lg:sticky top-24 h-[400px] md:h-[500px] lg:h-[calc(100vh-8rem)] mb-12 lg:mb-0 w-full">
                         <VSCodeFrame />
                     </div>
 

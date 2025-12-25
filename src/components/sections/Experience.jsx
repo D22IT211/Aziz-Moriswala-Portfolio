@@ -1,4 +1,6 @@
 import React from 'react';
+
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { experience } from '../../data/portfolioData';
 import { FaBriefcase, FaCalendarAlt, FaLaptopCode } from 'react-icons/fa';
@@ -6,7 +8,7 @@ import OrbitalPaths from '../backgrounds/OrbitalPaths';
 
 const Experience = () => {
     return (
-        <section id="experience" className="py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+        <section id="experience" className="py-16 md:py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
             <OrbitalPaths />
 
             {/* Creative Background Elements */}
@@ -15,15 +17,15 @@ const Experience = () => {
                 <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="mb-24 text-center relative"
+                    className="mb-16 md:mb-24 text-center relative"
                 >
-                    <h2 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 tracking-tight mb-4">
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 tracking-tight mb-4">
                         Experience
                     </h2>
                     <div className="h-1 w-24 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-sm"></div>
@@ -36,7 +38,7 @@ const Experience = () => {
                     {/* Glowing Energy Beam Timeline */}
                     <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50 shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
 
-                    <div className="space-y-20 md:space-y-32">
+                    <div className="space-y-12 md:space-y-32">
                         {experience.map((exp, index) => (
                             <motion.div
                                 key={index}
@@ -56,13 +58,13 @@ const Experience = () => {
                                 </div>
 
                                 {/* Holographic Card */}
-                                <div className="w-full md:w-[45%] pl-16 md:pl-0 group perspective-1000">
+                                <div className="w-full md:w-[45%] pl-0 md:pl-0 group perspective-1000">
                                     <div className="relative transform transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-2 group-hover:rotate-y-2">
 
                                         {/* Animated Border Gradient */}
                                         <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl opacity-70 blur group-hover:opacity-100 transition duration-500 group-hover:duration-200 animate-tilt"></div>
 
-                                        <div className="relative bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-2xl p-8 border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden">
+                                        <div className="relative bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-2xl p-4 md:p-8 border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden">
 
                                             {/* Glass Reflection Effect */}
                                             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>

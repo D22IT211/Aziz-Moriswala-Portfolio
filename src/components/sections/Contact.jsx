@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { personalInfo } from '../../data/portfolioData';
 import { FaEnvelope, FaPhone, FaLinkedin, FaPaperPlane, FaCheckCircle, FaTimes, FaShieldAlt, FaChevronDown } from 'react-icons/fa';
 import { FloatingPaths } from '../ui/background-paths';
 import { countryCodes } from '../../data/countryCodes';
+import { useCursor } from '../ui/magnetic-cursor';
 
 const Contact = () => {
+    const { setCursorType } = useCursor();
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
@@ -96,7 +99,7 @@ const Contact = () => {
                 <FloatingPaths position={1} />
                 <FloatingPaths position={-1} />
             </div>
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -292,7 +295,13 @@ const Contact = () => {
                                 ></motion.textarea>
                                 {errors.message && <span className="text-xs text-red-500 ml-1">Message is required</span>}
                             </div>
-                            <button type="submit" disabled={isSubmitting} className="btn btn-primary w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed">
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="btn btn-primary w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+                                onMouseEnter={() => setCursorType('pointer')}
+                                onMouseLeave={() => setCursorType('default')}
+                            >
                                 {isSubmitting ? 'Sending...' : (
                                     <>Send Message <FaPaperPlane className="ml-2" /></>
                                 )}

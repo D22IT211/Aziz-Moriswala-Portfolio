@@ -55,19 +55,30 @@ export function ProjectShowcase({ projects = [] }) {
         setIsVisible(false)
     }
 
-    if (!projects || projects.length === 0) {
-        return null;
-    }
+
+
+    const [containerPos, setContainerPos] = useState({ left: 0, top: 0 });
+
+    useEffect(() => {
+        if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            setContainerPos({ left: rect.left, top: rect.top });
+        }
+    }, [smoothPosition, isVisible]); // Update when these change or on scroll potentially
+
+    // Ideally attach scroll listener too if needed, but fixed positioning relative to viewport usually needs just once or scroll.
+    // If "fixed", left/top should be relative to viewport.
+    // Logic: `left: rect.left` means it stays attached to the container visually but using fixed?
+
+    // ... rest of component ...
 
     return (
         <div ref={containerRef} onMouseMove={handleMouseMove} className="relative w-full py-8">
-            {/* <h2 className="text-muted-foreground text-sm font-medium tracking-wide uppercase mb-8">Selected Work</h2> */}
-
             <div
-                className="pointer-events-none fixed z-50 overflow-hidden rounded-xl shadow-2xl hidden md:block" // Hidden on mobile, fixed positioning can be tricky there
+                className="pointer-events-none fixed z-50 overflow-hidden rounded-xl shadow-2xl hidden md:block"
                 style={{
-                    left: containerRef.current?.getBoundingClientRect().left ?? 0,
-                    top: containerRef.current?.getBoundingClientRect().top ?? 0,
+                    left: containerPos.left,
+                    top: containerPos.top,
                     transform: `translate3d(${smoothPosition.x + 20}px, ${smoothPosition.y - 100}px, 0)`,
                     opacity: isVisible ? 1 : 0,
                     scale: isVisible ? 1 : 0.8,
