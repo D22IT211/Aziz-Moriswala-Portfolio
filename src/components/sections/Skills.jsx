@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { skills } from '../../data/portfolioData';
 import TechIcons from '../backgrounds/TechIcons';
@@ -188,6 +188,35 @@ const VerticalTreeBranch = ({ data, level = 0 }) => {
 };
 
 const Skills = () => {
+    const { setCursorType } = useCursor();
+    const scrollContainerRef = useRef(null);
+    const wasOverScrollbar = useRef(false);
+
+    useEffect(() => {
+        const checkScrollbarHover = (e) => {
+            if (!scrollContainerRef.current) return;
+
+            const rect = scrollContainerRef.current.getBoundingClientRect();
+            // Define scrollbar detection zone (bottom 20px of the container)
+            const isHorizontalInBounds = e.clientX >= rect.left && e.clientX <= rect.right;
+            const distFromBottom = rect.bottom - e.clientY;
+            const isVerticalInBounds = distFromBottom <= 24 && distFromBottom >= 0; // Increased to 24px for better hit testing
+
+            const isOver = isHorizontalInBounds && isVerticalInBounds;
+
+            if (isOver && !wasOverScrollbar.current) {
+                setCursorType('grab');
+                wasOverScrollbar.current = true;
+            } else if (!isOver && wasOverScrollbar.current) {
+                setCursorType('default');
+                wasOverScrollbar.current = false;
+            }
+        };
+
+        window.addEventListener('mousemove', checkScrollbarHover);
+        return () => window.removeEventListener('mousemove', checkScrollbarHover);
+    }, [setCursorType]);
+
     return (
         <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden">
             <TechIcons />
@@ -227,7 +256,10 @@ const Skills = () => {
                                 </div>
 
                                 {/* Desktop Layout: Horizontal Tree */}
-                                <div className="hidden md:flex flex-row flex-wrap md:flex-nowrap gap-x-16 gap-y-8 ml-8 border-l-2 border-slate-200 dark:border-slate-800 pl-8 py-4">
+                                <div
+                                    ref={scrollContainerRef}
+                                    className="hidden md:flex flex-row flex-wrap md:flex-nowrap gap-x-16 gap-y-8 ml-8 border-l-2 border-slate-200 dark:border-slate-800 pl-8 py-4 overflow-x-auto w-full max-w-full pb-12 pr-24 scroll-smooth sleek-scrollbar overscroll-x-contain transform-gpu"
+                                >
                                     {forestRoots.map((root, rootIdx) => (
                                         <div key={rootIdx} className="min-w-[max-content]">
                                             <HorizontalTreeBranch data={root} isRoot={true} />

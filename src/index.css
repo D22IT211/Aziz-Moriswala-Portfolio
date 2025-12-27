@@ -276,6 +276,29 @@ body {
   /* Firefox */
 }
 
+/* Neon Glow Scrollbar */
+.sleek-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.sleek-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 0 20px;
+}
+
+.sleek-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sleek-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary), 0 0 20px var(--glow-color);
+}
+
 /* Animations */
 @keyframes float {
   0% {

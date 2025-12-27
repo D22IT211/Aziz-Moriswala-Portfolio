@@ -82,14 +82,14 @@ export const MagneticCursor = ({
 
             const speed = Math.sqrt(delta.x * delta.x + delta.y * delta.y) * ANIMATION_CONSTANTS.SPEED_MULTIPLIER;
 
-            const isPointer = cursorTypeRef.current === 'pointer';
+            const isFixed = cursorTypeRef.current === 'pointer' || cursorTypeRef.current === 'grab';
 
             gsap.set(state.el, {
                 x: state.pos.current.x,
                 y: state.pos.current.y,
-                rotate: isPointer ? 0 : Math.atan2(delta.y, delta.x) * (180 / Math.PI),
-                scaleX: isPointer ? 1 : 1 + Math.min(speed, ANIMATION_CONSTANTS.MAX_SCALE_X),
-                scaleY: isPointer ? 1 : 1 - Math.min(speed, ANIMATION_CONSTANTS.MAX_SCALE_Y),
+                rotate: isFixed ? 0 : Math.atan2(delta.y, delta.x) * (180 / Math.PI),
+                scaleX: isFixed ? 1 : 1 + Math.min(speed, ANIMATION_CONSTANTS.MAX_SCALE_X),
+                scaleY: isFixed ? 1 : 1 - Math.min(speed, ANIMATION_CONSTANTS.MAX_SCALE_Y),
             });
         };
 
@@ -371,8 +371,8 @@ export const MagneticCursor = ({
                     pointerEvents: 'none',
                     zIndex: 9999,
                     borderRadius: '50%',
-                    backgroundColor: cursorType === 'pointer' ? 'transparent' : cursorColor,
-                    mixBlendMode: cursorType === 'pointer' ? 'normal' : blendMode,
+                    backgroundColor: (cursorType === 'pointer' || cursorType === 'grab') ? 'transparent' : cursorColor,
+                    mixBlendMode: (cursorType === 'pointer' || cursorType === 'grab') ? 'normal' : blendMode,
                     width: cursorSize,
                     height: cursorSize,
                     display: 'flex',
@@ -402,6 +402,11 @@ export const MagneticCursor = ({
                                 </filter>
                             </defs>
                         </svg>
+                    </div>
+                )}
+                {cursorType === 'grab' && (
+                    <div style={{ position: 'absolute', top: -8, left: -8, width: '40px', height: '40px' }}>
+                        <img src="/scroll-cursor.png" alt="Scroll Grab" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                     </div>
                 )}
             </div>
